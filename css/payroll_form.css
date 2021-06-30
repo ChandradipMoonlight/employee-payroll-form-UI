@@ -186,3 +186,33 @@ select {
         padding: 44px 20px;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .form {
+        margin-top: 10px;
+    }
+    .row {
+        flex-direction: column;
+    }
+    .uploadButton {
+        justify-content: flex-start;
+    }
+    .profile-radio-button {
+        flex-flow: wrap;
+    }
+    .submit-reset {
+        width: 100px;
+        display: flex;
+        flex-grow: 1;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .submitButtton {
+        margin: 0px;
+    }
+    .buttonContent {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+}
