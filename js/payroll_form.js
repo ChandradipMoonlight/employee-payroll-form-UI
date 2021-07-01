@@ -39,13 +39,14 @@ class EmployeePayrollData {
             ", profilePic = '" + this.profilePic + ", department = " + this.department +
             ", Salary = " + this.salary + "startDate = " + empDate + ", note = " + this.note;
 
+
     }
 }
 
 
-const salary = document.querySelector('#salary');
-const output = document.querySelector('.salary-output');
-output.textContent = salary.value;
-salary.addEventListener('input', function() {
-    output.textContent = salary.value;
-});
+// const salary = document.querySelector('#salary');
+// const output = document.querySelector('.salary-output');
+// output.textContent = salary.value;
+// salary.addEventListener('input', function() {
+//     output.textContent = salary.value;
+// });
