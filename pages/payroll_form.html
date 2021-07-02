@@ -22,13 +22,14 @@
             <span class="emp-text emp-payroll">PAYROLL</span>
         </div>
     </header>
-    <div class="form-content">
+    <div id="formId" class="form-content">
         <form class="form" action="#" onsubmit="save();return false">
             <!--UC 2-->
             <div class="form-head">Employee payroll form</div>
             <div class="row-content">
                 <label class="label text" for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="your name" required>
+                <input type="text" id="name" name="name" placeholder="your name" style="width: 500px;" required>
+                <error-output class="text-error" for="text"></error-output>
             </div>
 
             <!--uc-3-specify profile pictures-->
@@ -147,13 +148,13 @@
             <!-- UC 6 -->
             <div class="row-content butttonContent">
                 <label class="label" for="Notes">Notes</label>
-                <textarea name="Notes" id="notes" placeholder="" style="height: 100px; margin: 0px; width: 675px;"></textarea>
+                <textarea name="Notes" id="notes" placeholder="" style="height: 100px; margin: 0px; width: 600px;"></textarea>
             </div>
             <div class="butttonContent">
-                <a href="./home.html" class="resetButton button cancelButton">Cancel</a>
                 <div class="submit-reset">
-                    <button type="submit" class="buttton submitButton" id="submitButton">submit</button>
-                    <button type="reset" class="resetButtton buttton">Reset</button>
+                    <a href="./home.html" class="resetButton button cancelButton" type="cancel">Cancel</a>
+                    <button type="submit" class="button submitButton" id="submitButton">submit</button>
+                    <button type="reset" class="resetButton button">Reset</button>
                 </div>
             </div>
         </form>
