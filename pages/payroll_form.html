@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="\css\payroll_form.css">
     <title>Employee payroll form</title>
     <script defer src="\js\payroll_form.js"></script>
-    <title>Document</title>
+    <script defer src="\js\EmployeePayroll.js"></script>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
         </div>
     </header>
     <div id="formId" class="form-content">
-        <form class="form" action="#" onsubmit="save();return false">
+        <form class="form" action="#" onsubmit="save(event)" ; return false>
             <!--UC 2-->
             <div class="form-head">Employee payroll form</div>
             <div class="row-content">
@@ -152,7 +152,7 @@
             </div>
             <div class="butttonContent">
                 <div class="submit-reset">
-                    <a href="./home.html" class="resetButton button cancelButton" type="cancel">Cancel</a>
+                    <a href="./payroll_form.html" class="resetButton button cancelButton" type="cancel">Cancel</a>
                     <button type="submit" class="button submitButton" id="submitButton">submit</button>
                     <button type="reset" class="resetButton button">Reset</button>
                 </div>
