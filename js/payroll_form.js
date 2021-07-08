@@ -7,8 +7,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
             return;
         }
         try {
-            let employeePayrollData = new EmployeePayrollData();
-            employeePayrollData.name = name.value;;
+            let employeePayrollData = new EmployeePayrollData
+            employeePayrollData.namme = name.value;;
             textError.textContent = "";
         } catch (e) {
             textError.textContent = e;

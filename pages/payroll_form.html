@@ -5,11 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="\css\payroll_form.css">
     <title>Employee payroll form</title>
-    <script defer src="\js\payroll_form.js"></script>
-    <script defer src="\js\EmployeePayroll.js"></script>
 </head>
 
 <body>
@@ -87,9 +85,9 @@
             </div>
             <!-- UC 5 -->
             <div class="row-content">
-                <label class="label text" for="startDate">startDate</label>
+                <label class="label text" for="startDate">Start Date</label>
                 <div>
-                    <select name="day" id="day">
+                    <select class="select" name="day" id="day">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -136,7 +134,7 @@
                 <option value="Nov">November</option>
                 <option value="Dec">December</option>
             </select>
-                    <select name="year" id="year">
+                    <select class="select" name="year" id="year">
                 <option value="2020">2020</option>
                 <option value="2019">2019</option>
                 <option value="2018">2018</option>
@@ -146,19 +144,21 @@
                 </div>
             </div>
             <!-- UC 6 -->
-            <div class="row-content butttonContent">
-                <label class="label" for="Notes">Notes</label>
-                <textarea name="Notes" id="notes" placeholder="" style="height: 100px; margin: 0px; width: 600px;"></textarea>
+            <div class="row-content">
+                <label class="label-text" for="notes">Notes</label>
+                <textarea class="input" name="Notes" id="notes" placeholder="" style="height: 100px;"></textarea>
             </div>
             <div class="butttonContent">
                 <div class="submit-reset">
-                    <a href="./payroll_form.html" class="resetButton button cancelButton" type="cancel">Cancel</a>
-                    <button type="submit" class="button submitButton" id="submitButton">submit</button>
+                    <a href="./payroll_form.html" class="resetButton button cancelButton">Cancel</a>
+                    <button type="submit" class="button submitButton" id="submitButton">Submit</button>
                     <button type="reset" class="resetButton button">Reset</button>
                 </div>
             </div>
         </form>
     </div>
+    <script src="\js\EmployeePayroll.js"></script>
+    <script src="\js\payroll_form.js"></script>
 </body>
 
 </html>
