@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="href=" https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap "">
+    <link rel="stylesheet" href=" https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap">
     <link rel="stylesheet" href="\css\home.css">
     <title>Employee payroll form</title>
     <script defer src="\js\home.js"></script>
@@ -36,14 +36,37 @@
         <div class="table-main">
             <!-- UC 3 -->
 
-            <table id="table-display" class="table">
+            <table id="display" class="table">
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Salary</th>
+                    <th>Start Date</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="\assets\profile-images\Ellipse -2.png" alt="" class="profile">
+                    </td>
+                    <td>Chandradip Shivankar</td>
+                    <td>Male</td>
+                    <td>
+                        <div class="dept-label">HR</div>
+                        <div class="dept-label">Finance</div>
+                    </td>
+                    <td>3000000</td>
+                    <td>1 Nov 2020</td>
+                    <td>
+                        <img src="\assets\icons\delete-black-18dp.svg" alt="Delete" id="1" onclick="rmove(this)">
+                        <img src="\assets\icons\create-black-18dp.svg" alt="Edit" id="1" onclick="update(this)">
+                    </td>
+                </tr>
             </table>
         </div>
         <!-- table-main -->
     </div>
     <!-- main-content -->
-    <script src="\js\home.js"></script>
-    <script src="\js\EmployeePayroll.js"></script>
 </body>
 
 </html>
