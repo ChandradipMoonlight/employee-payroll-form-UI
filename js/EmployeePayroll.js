@@ -19,10 +19,10 @@ class EmployeePayrollData {
     set gender(gender) { this._gender = gender; }
 
     get department() { return this._department; }
-    set department(department) { this_department = department; }
+    set department(department) { this._department = department; }
 
     get salary() { return this._salary; }
-    set salary(salary) { return this._salary = salary; }
+    set salary(salary) { this._salary = salary; }
 
     get note() { return this._note; }
     set note(note) { this._note = note; }
@@ -36,7 +36,7 @@ class EmployeePayrollData {
         const empDate = !this.startDate ? "undefined" :
             this.startDate.toLocalDateString("en-US", options);
         return "id=" + this.id + ", name = '" + this.name + ", gender = '" + this.gender +
-            ", profilePic = '" + this.profilePic + ", department = " + this.department +
-            ", Salary = " + this.salary + "startDate = " + empDate + ", note = " + this.note;
+            ", profilePic = '" + this.profilePic + ", department ='" + this.department +
+            ", Salary = '" + this.salary + "startDate = '" + empDate + ", note = '" + this.note;
     }
 }

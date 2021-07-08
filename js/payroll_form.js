@@ -7,8 +7,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
             return;
         }
         try {
-            let employeePayrollData = new EmployeePayrollData();
-            employeePayrollData.name = name.value;;
+            let employeePayrollData = new EmployeePayrollData
+            employeePayrollData.namme = name.value;;
             textError.textContent = "";
         } catch (e) {
             textError.textContent = e;
@@ -87,10 +87,10 @@ const getInputValueById = (id) => {
  * 1: getElementById is better supported than  querySelector in older versions of the browsers.
  * 2: The thing with getElementById is that it only allows to select an element by its id.
  */
-const getInputElementValue = (id) => {
-    let value = document.getElementById(id).value;
-    return value;
-}
+// const getInputElementValue = (id) => {
+//     let value = document.getElementById(id).value;
+//     return value;
+// }
 
 const resetFor = () => {
     setValue('#name', '');
