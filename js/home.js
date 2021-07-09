@@ -1,17 +1,22 @@
+let employeePayrollList;
 window.addEventListener("DOMContentLoaded", (event) => {
+    employeePayrollList = getEmployeePayrollDataFromStorage();
+    document.querySelector(".emp-count").textContent = employeePayrollList.length;
     createInnerHtml();
 });
 
+const getEmployeePayrollDataFromStorage = () => {
+    return localStorage.getItem('EmployeePayrollList') ? JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];
+}
+
 const createInnerHtml = () => {
     const headerHtml = "<tr><th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th></tr>"
-    let innerHtml = `${headerHtml}`
-    let employeePayrollList = createEmployeePayrollJSON();
+    if (employeePayrollList.length == 0) return;
+    let innerHtml = `${headerHtml}`;
     for (const employee of employeePayrollList) {
         innerHtml = `${innerHtml}
     <tr>
-    <td>
-        <img class="profile" alt="" src="${employee._picture}">
-    </td>
+    <td><img class="profile" alt="" src="${employee._picture}"> </td>
     <td>${employee._name}</td>
     <td>${employee._gender}</td>
     <td>${getDeptHtml(employee._department)}</td>
@@ -24,49 +29,16 @@ const createInnerHtml = () => {
  </tr>
     `;
     }
-    document.querySelector("#table-display").innerHTML = innerHtml;
+    document.querySelector("#display").innerHTML = innerHtml;
 };
 
-const createEmployeePayrollJSON = () => {
-    let employeeListLocal = [{
-            _name: "Chandradip Shivankar",
-            _gender: "Male",
-            _department: ["Finance", "Sales"],
-            _salary: "700000",
-            _startDate: "26 Jan 2018",
-            _note: "",
-            _id: new Date().getTime(),
-            _picture: "../assets/profile-images/Ellipse -5.png"
-        },
-        {
-            _name: "Alexa",
-            _gender: "Female",
-            _department: ["sales", "Engineering"],
-            _salary: "750000",
-            _startDate: "17 Dec 2018",
-            _note: "",
-            _id: new Date().getTime() + 1,
-            _picture: "../assets/profile-images/Ellipse -7.png"
-        },
-        {
-            _name: 'Amarpa Shashanka Keerthi Kumar',
-            _gender: 'female',
-            _department: [
-                'Sales'
-            ],
-            _salary: 400800,
-            _startDate: '29 Oct 2019',
-            _note: '',
-            id: new Date().getTime() + 1,
-            _picture: "../assets/profile-images/Ellipse -1.png"
-        }
-    ];
-    return employeeListLocal;
-};
+function remove(employeePayrollList) {
+    localStorage.removeItem(employeePayrollList);
+}
 
-const getDeptHtml = (departmentList) => {
+const getDeptHtml = (deptList) => {
     let deptHtml = "";
-    for (const dept of departmentList) {
+    for (const dept of deptList) {
         deptHtml = `${deptHtml}<div class="dept-label">${dept}</div>`
     }
     return deptHtml;

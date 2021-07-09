@@ -7,8 +7,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             return;
         }
         try {
-            let employeePayrollData = new EmployeePayrollData();
-            employeePayrollData.name = name.value;;
+            (new EmployeePayroll()).name = name.value;;
             textError.textContent = "";
         } catch (e) {
             textError.textContent = e;
@@ -19,80 +18,82 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const output = document.querySelector('.salary-output');
     output.textContent = salary.value;
     salary.addEventListener('input', function() {
-        output.textContent = salary.value
+        output.textContent = salary.value;
+    });
+
+    const startDate = document.querySelector('#date');
+    startDate.addEventListener("input", function() {
+        const day = document.getElementById("day").value;
+        const month = document.getElementById("month").value;
+        const year = document.getElementById("year").value;
+        const dateError = document.querySelector(".date-error");
+        try {
+            (new EmployeePayroll()).startDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+            dateError.textContent = "";
+        } catch (e) {
+            dateError.textContent = e;
+        }
     });
 });
 
-const save = () => {
+const saveForm = () => {
     try {
-        let employeePayrollData = createEmployeepayrolldata();
-        createAndUpdateStorage(employeePayrollData);
+        let employeePayroll = createEmployeePayroll();
+        createAndUpdateStorage(employeePayroll);
     } catch (e) {
-        return;
+        return
     }
 }
 
-function createAndUpdateStorage(employeePayrollData) {
-    let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
-    if (employeePayrollList != undefined) {
-        employeePayrollList.push(employeePayrollData);
-    } else {
-        employeePayrollList = [employeePayrollData]
-    }
-    alert(employeePayrollList.toString());
-    localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList))
-}
-
-const createEmployeepayrolldata = () => {
-    let employeePayrollData = new EmployeePayrollData();
+const createEmployeePayroll = () => {
+    let employeePayroll = new EmployeePayroll();
     try {
-        employeePayrollData.name = getInputValueById('#name');
+        employeePayroll.name = getInputValueById('#name');
     } catch (e) {
         setTextValue('.text-error', e);
         throw e;
     }
-    employeePayrollData.profilePic = getSelectedValues('[name=profile]').pop();
-    employeePayrollData.gender = getSelectedValues('[name=gender]').pop();
-    employeePayrollData.department = getSelectedValues('[name=department]');
-    employeePayrollData.salary = getInputValueById('#salary');
-    employeePayrollData.note = getInputValueById('#notes');
-    let date = getInputValueById('#day') + " " + getInputValueById('#month') + " " +
-        getInputValueById('#year');
-    employeePayrollData.date = Date.parse(date);
-    alert(employeePayrollData.toString());
-    return employeePayrollData;
+    employeePayroll.picture = getSelectedValues('[name=profile]').pop();
+    employeePayroll.gender = getSelectedValues('[name=gender]').pop();
+    employeePayroll.department = getSelectedValues('[name=department]');
+    employeePayroll.salary = getInputValueById('#salary');
+    employeePayroll.notes = getInputValueById('#notes');
+    employeePayroll.startDate = new Date(parseInt(document.getElementById("year").value), parseInt(document.getElementById("month").value) - 1, parseInt(document.getElementById("day").value));
+    alert(employeePayroll.toString());
+    return employeePayroll;
 }
 
 const getSelectedValues = (propertyValue) => {
     let allItems = document.querySelectorAll(propertyValue);
-    let selItem = [];
+    let setItems = [];
     allItems.forEach(item => {
-        if (item.checked) selItem.push(item.value);
+        if (item.checked) setItems.push(item.value);
     });
-    return selItem;
+    return setItems;
 }
 
-/**
- * 1: querySelector is the newer feature.
- * 2: The querySelectore method can be used when selectin by element name,
- *    nesting, or class name.
- * 3: querySelector lets you find elements with rules that can,t be expressed with getElementbyId
- */
 const getInputValueById = (id) => {
     let value = document.querySelector(id).value;
     return value;
 }
 
-/**
- * 1: getElementById is better supported than  querySelector in older versions of the browsers.
- * 2: The thing with getElementById is that it only allows to select an element by its id.
- */
-// const getInputElementValue = (id) => {
-//     let value = document.getElementById(id).value;
-//     return value;
-// }
+const getInputElementValue = (id) => {
+    let value = document.getElementById(id).value;
+    return value;
+}
 
-const resetFor = () => {
+function createAndUpdateStorage(employeePayroll) {
+    let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+    if (employeePayrollList != undefined) {
+        employeePayrollList.push(employeePayroll);
+    } else {
+        employeePayrollList = [employeePayroll];
+    }
+    alert(employeePayrollList.toString());
+    localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
+}
+
+const resetForm = () => {
     setValue('#name', '');
     unsetSelectedValues('[name=profile]');
     unsetSelectedValues('[name=gender]');
@@ -117,6 +118,6 @@ const setTextValue = (id, value) => {
 }
 
 const setValue = (id, value) => {
-    const element = document.querySelector(id);
+    const element = document.getElementById(id);
     element.value = value;
 }

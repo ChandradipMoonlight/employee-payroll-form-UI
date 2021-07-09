@@ -20,8 +20,8 @@ html body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border: 0px solid green;
     width: 80%;
+    border: 0px solid green;
 }
 
 .logo-content-img {
@@ -44,16 +44,14 @@ html body {
     box-sizing: border-box;
 }
 
-
-/* UC 2 */
-
 .main-content {
     display: flex;
     flex-direction: column;
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh-80px);
     background-color: #f7f7f7;
     padding: 30px 0 10px;
     box-sizing: border-box;
+    margin: 0 15px;
 }
 
 .header-content {
@@ -97,9 +95,6 @@ html body {
     text-decoration: none;
 }
 
-
-/* UC 3 */
-
 .table-main {
     width: 80%;
     margin: 0 auto;
@@ -117,7 +112,6 @@ td,
 th {
     text-align: left;
     padding: 5px 8px;
-    /* border: 1px solid #dddddd; */
 }
 
 th {
