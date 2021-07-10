@@ -1,4 +1,5 @@
   let siteProperties = {
-      homePage: "../pages/home.html",
-      addEmpPayrollPage: "\js\EmployeePayroll.js"
+      homePage: "\pages\home.html",
+      addEmpPayrollPage: "\pages\payroll_form.html "
+
   };
